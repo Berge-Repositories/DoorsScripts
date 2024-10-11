@@ -1,3 +1,8 @@
+--[[
+CREDITS TO RegularVynixu FOR THE SPAWNER
+UI MADE BY ME
+]]
+
 
 local ScreenGui = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
