@@ -1,4 +1,7 @@
-
+--[[
+CREDITS TO RegularVynixu FOR THE CUSTOM ENTITY SCRIPT
+Doors Custom Entity Spawner V1
+]]
 local ScreenGui = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local TextLabel = Instance.new("TextLabel")
