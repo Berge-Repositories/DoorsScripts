@@ -1,7 +1,4 @@
---[[
-CREDITS TO RegularVynixu FOR THE CUSTOM ENTITY SCRIPT
-Doors Custom Entity Spawner V1
-]]
+
 local ScreenGui = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local TextLabel = Instance.new("TextLabel")
@@ -174,7 +171,13 @@ local UICorner_25 = Instance.new("UICorner")
 local UIPadding_4 = Instance.new("UIPadding")
 
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global
+ScreenGui.DisplayOrder = 999999999
+ScreenGui.IgnoreGuiInset = true
+ScreenGui.ResetOnSpawn = false
+ScreenGui.ScreenInsets = Enum.ScreenInsets.DeviceSafeInsets
+ScreenGui.Name = "EntitySpawner"
+
 
 Main.Name = "Main"
 Main.Parent = ScreenGui
@@ -1595,7 +1598,7 @@ Switch_8.Size = UDim2.new(1, 0, 1, 0)
 Switch_8.SizeConstraint = Enum.SizeConstraint.RelativeYY
 Switch_8.ZIndex = 1107
 Switch_8.Text = ""
-Value_29.MouseButton1Click:Connect(function()
+Value_25.MouseButton1Click:Connect(function()
 	Value_25Value = not Value_25Value
 	if Value_25Value then
 		game:GetService("TweenService"):Create(Switch_8, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out, 0), {Position = UDim2.new(0.783333659, 0, 0.5, 0)}):Play()
@@ -1829,7 +1832,7 @@ Value_29.Font = Enum.Font.SourceSans
 Value_29.Text = ""
 Value_29.TextColor3 = Color3.new(0, 0, 0)
 Value_29.TextSize = 14
-Value_29Value = true
+local Value_29Value = true
 
 
 Toggle_11.Name = "Toggle"
@@ -1969,8 +1972,8 @@ Option1_2.TextYAlignment = Enum.TextYAlignment.Top
 
 Option1_2.MouseButton1Click:Connect(function()
 	Options_2.Visible = false
-	Options_2Value = Option1_2.Text
-	Dropdown_2.Text = Options_2Value
+	Options_2Value = "Guiding"
+	Dropdown_2.Text = "Guiding"
 end)
 
 UIListLayout_12.Parent = Options_2
@@ -1994,8 +1997,8 @@ Option2_2.TextYAlignment = Enum.TextYAlignment.Top
 
 Option2_2.MouseButton1Click:Connect(function()
 	Options_2.Visible = false
-	Options_2Value = Option2_2.Text
-	Dropdown_2.Text = Options_2Value
+	Options_2Value = "Curious"
+	Dropdown_2.Text = "Curious"
 end)
 Cause.Name = "Cause"
 Cause.Parent = DeathSettings
@@ -2297,7 +2300,7 @@ Confirm.MouseButton1Click:Connect(function()
 		Lights = {
 			Flicker = {
 				Enabled = Value_4Value,
-				Duration = 1
+				Duration = Value_5.Text
 			},
 			Shatter = Value_6Value,
 			Repair = Value_7Value
@@ -2308,35 +2311,35 @@ Confirm.MouseButton1Click:Connect(function()
 		CameraShake = {
 			Enabled = Value_9Value,
 			Range = tonumber(Value_10.Text),
-			Values = {1.5, 20, 0.1, 1} -- Magnitude, Roughness, FadeIn, FadeOut
+			Values = {Value_11.Text, Value_12.Text, Value_13.Text, Value_14.Text} -- Magnitude, Roughness, FadeIn, FadeOut
 		},
 		Movement = {
-			Speed = 100,
-			Delay = 2,
-			Reversed = false
+			Speed = Value_15.Text,
+			Delay = Value_16.Text,
+			Reversed = Value_17Value
 		},
 		Rebounding = {
-			Enabled = true,
-			Type = "Ambush", -- "Blitz"
-			Min = 1,
-			Max = 1,
-			Delay = 2
+			Enabled = Value_20Value,
+			Type = OptionsValue, -- "Blitz"
+			Min = Value_21.Text,
+			Max = Value_22.Text,
+			Delay = Value_23.Text
 		},
 		Damage = {
-			Enabled = true,
-			Range = 40,
-			Amount = 125
+			Enabled = Value_25Value,
+			Range = Value_24.Text,
+			Amount = Value_26.Text
 		},
 		Crucifixion = {
-			Enabled = true,
-			Range = 40,
-			Resist = false,
-			Break = true
+			Enabled = Value_26Value,
+			Range = Value_27.Text,
+			Resist = Value_28Value,
+			Break = Value_29Value
 		},
 		Death = {
-			Type = "Guiding", -- "Curious"
-			Hints = {"Death", "Hints", "Go", "Here"},
-			Cause = ""
+			Type = Options_2Value, -- "Curious"
+			Hints = {Value_31, Value_32, Value_33, Value_34},
+			Cause = Value_30
 		}
 	})
 
