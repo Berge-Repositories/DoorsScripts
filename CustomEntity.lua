@@ -2,6 +2,8 @@
 CREDITS TO RegularVynixu FOR THE SPAWNER
 UI MADE BY ME
 ]]
+local UserInputService = game:GetService("UserInputService")
+
 
 
 local ScreenGui = Instance.new("ScreenGui")
@@ -193,6 +195,7 @@ Main.BorderColor3 = Color3.new(0, 0, 0)
 Main.BorderSizePixel = 0
 Main.Position = UDim2.new(0.499579817, 0, 0.5, 0)
 Main.Size = UDim2.new(0, 600, 0, 400)
+Main.Visible = false
 
 UIStroke.Color = Color3.fromRGB(255, 222, 189)
 UIStroke.Parent = Main
@@ -227,6 +230,7 @@ CloseButton.Image = "rbxassetid://2195446979"
 CloseButton.ImageColor3 = Color3.new(1, 0.870588, 0.741176)
 CloseButton.MouseButton1Click:Connect(function()
 	Main.Visible = false
+	UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
 end)
 
 
@@ -2206,6 +2210,7 @@ OpenButton.TextWrapped = true
 
 TextLabel_2.MouseButton1Click:Connect(function()
 	Main.Visible = true
+	UserInputService.MouseBehavior = Enum.MouseBehavior.Default
 end)
 
 task.spawn(coroutine.create(function()
